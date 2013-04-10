@@ -11,5 +11,5 @@ program SMOKER_PROG {
         int GETMEMYSUPPLY(struct supplyReq) = 1;
         void EXIT(struct supplyReq) = 2;
     } = 1;
-} = 0x21250000;
+} = 0x21140000;
 
