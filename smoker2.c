@@ -1,7 +1,7 @@
 #include "smoking.h"
 #include <string.h>
 #define COMP_LIMIT 7
-#define SMOKER_ID 2 
+#define SMOKER_ID 2
 
 /* Beginning supplies */
 int tobacco = 10;
@@ -74,16 +74,16 @@ int main(int argc, char**argv)
             struct supplyReq request = {getEmptySup(), 0, SMOKER_ID, 0};
             
             /* Creates a struct to receive the supplies from the agent */
-            int result = *getmemysupply_1(&request, cl);
+            int *result = getmemysupply_1(&request, cl);
 
             /* Checks the result struct and whether resources are available */
-            if (result == 1) { 
+            if (&result == 1) { 
                 printf("Tobacco supplies are received, and now smoking!\n");
                 updateSupplies(request); // Will update resources and smoke on next iteration
             }
-            else if (result == -1)
+            else if (&result == -1)
                 suppliesLeft = 0;
-            else if (result == -2) {
+            else if (&result == -2) {
                 printf("I am the last smoker and there are no more supplies... I will take the agent down with me!");
                 exit_1(&request, cl);
                 clnt_destroy(cl);

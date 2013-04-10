@@ -35,4 +35,4 @@ $(RPCGEN): $(RPCSRC)
 clean:
 	@# Using the '@' sign suppresses echoing
 	@# the line while the command is run
-	rm -f $(CLIENT) $(SERVER) $(RPCGEN)
+	rm -f $(CLIENT) $(SERVER) $(RPCGEN) $(CLIENT1) $(CLIENT2) $(CLIENT3)
