@@ -15,7 +15,8 @@ int *getmemysupply_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
     /* Evaluates whether the agent has adequate resources for the request and 
      * then updates the struct to reflect the agent's status
      */
-    static int response = 1;
+
+    static int response;
     if (checkSupply(in->supplyType, in->supplyAmount) == 1) {
         in->done = 1;
         response = 1;
@@ -40,7 +41,7 @@ int *getmemysupply_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
 }
 
 void *exit_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
-    printf("All smokers killed, therefore agent will terminate");
+    printf("All smokers killed, therefore agent will terminate\n");
     fflush(NULL);
     exit(0);
 }
