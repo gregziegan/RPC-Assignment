@@ -13,7 +13,7 @@ void smoke() {
     tobacco--;
     paper--;
     matches--;
-    printf("Smoker%d smoked... ahhh", SMOKER_ID);
+    printf("Smoker%d smoked... ahhh\n", SMOKER_ID);
 }
 
 /* Evaluates whether smoker can smoke */
@@ -59,42 +59,48 @@ int main(int argc, char**argv)
     cl = clnt_create(server_hostname, SMOKER_PROG, SMOKER_VERS, "udp");
 
     if(cl == NULL) {
-        clnt_pcreateerror("Error creating client");
+        clnt_pcreateerror("Error creating client\n");
         exit(EXIT_FAILURE);
     }
-
+    
+    char* emptySupply = (char *)malloc(sizeof(char[10]));
     int suppliesLeft = 1; // 1 = true
     while (suppliesLeft != 0) {
         if (canSmoke() == 1)
             smoke();
         else {
-            printf("Need more supplies!");
+            printf("Need more supplies!\n");
 
-            /* Creates a struct with an empty supply type to send to the agent */
-            struct supplyReq request = {getEmptySup(), 0, SMOKER_ID, 0};
+            strcpy(emptySupply, getEmptySup());
             
-            /* Creates a struct to receive the supplies from the agent */
-            int *result = getmemysupply_1(&request, cl);
+            // Creates a struct with an empty supply type to send to the agent 
+            struct supplyReq request = {getEmptySup(), 0, SMOKER_ID, 0};
 
-            /* Checks the result struct and whether resources are available */
-            if (&result == 1) { 
+            // Creates a struct to receive the supplies from the agent 
+            int* result = getmemysupply_1(&request, cl);
+
+            /*
+            // Checks the result struct and whether resources are available //
+            if (result == 1) { 
                 printf("Tobacco supplies are received, and now smoking!\n");
                 updateSupplies(request); // Will update resources and smoke on next iteration
             }
-            else if (&result == -1)
+            else if (result == -1)
                 suppliesLeft = 0;
-            else if (&result == -2) {
+            else if (result == -2) {
                 printf("I am the last smoker and there are no more supplies... I will take the agent down with me!");
                 exit_1(&request, cl);
                 clnt_destroy(cl);
                 exit(0);
             }
             else     
-                printf("No communication\n");
-        }
-    }
-    
-    printf("Sadly no more smoking supplies, now I will go kill myself.");
+                printf("No communication\n"); */
+            printf("%d", *result);
+            suppliesLeft = 0;
+        } 
+    } 
+
+    printf("Sadly no more smoking supplies, now I will go kill myself.\n");
 
     clnt_destroy(cl);
     return 0;
