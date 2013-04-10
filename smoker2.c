@@ -73,14 +73,10 @@ int main(int argc, char**argv)
         else {
             printf("Need more supplies!\n");
 
-            strcpy(emptySupply, getEmptySup());
-            
-            printf("Need Supply type: %s\n", emptySupply);
-
             // Creates a struct with an empty supply type to send to the agent 
-            struct supplyReq request = {emptySupply, 1, SMOKER_ID, 0};
+            struct supplyReq request = {getEmptySup(), 1, SMOKER_ID, 0};
 
-            printf("Supply Type of request: %s\n", request.supplyType);
+            printf("Supply Type of request: %c\n", request.supplyType);
             // Creates a struct to receive the supplies from the agent 
             int* result = getmemysupply_1(&request, cl);
 

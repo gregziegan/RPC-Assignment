@@ -27,7 +27,7 @@ int *getmemysupply_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
         in->done = -2;
     }
 
-    char* returnMessage = "Server Received {SupplyType: %s, SupplyAmount: %d, SmokerID: %d, Done: %d} and sent the result: %d\n";
+    char* returnMessage = "Server Received {SupplyType: %c, SupplyAmount: %d, SmokerID: %d, Done: %d} and sent the result: %d\n";
                                                                                                         
     printf(returnMessage, in->supplyType, in->supplyAmount, in->smokerID, in->done, in->done);
     fflush(NULL);
