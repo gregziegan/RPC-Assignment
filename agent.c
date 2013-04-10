@@ -15,8 +15,11 @@ int *getmemysupply_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
 
     /* Will tell a smoker to wait until another smoker has requested supplies */
     if (in->smokerID == lastSmokerID && smokersKilled < 2) {
-        return((int *)CHANGE_SMOKERS);
+        in->done = CHANGE_SMOKERS;
+        return(&in->done);
     }
+
+    lastSmokerID = in->smokerID;
 
     /* Evaluates whether the agent has adequate resources for the request and 
      * then updates the struct to reflect the agent's status
