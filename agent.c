@@ -2,11 +2,11 @@
 #include <string.h>
 #define COMP_LIMIT 7
 
-/*int tobacco = 20;
+int tobacco = 20;
 int paper = 15;
 int matches = 15;
 int smokersKilled = 0;
-*/
+
 int checkSupply(char* type, int amount);
 int getSupply(char* type);
 
@@ -16,7 +16,7 @@ int *getmemysupply_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
      * then updates the struct to reflect the agent's status
      */
     static int response = 1;
-    /*if (checkSupply(in->supplyType, in->supplyAmount) == 1) {
+    if (checkSupply(in->supplyType, in->supplyAmount) == 1) {
         in->done = 1;
         response = 1;
     } else {
@@ -35,7 +35,7 @@ int *getmemysupply_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
     char* returnMessage = "Server Received {SupplyType: %s, SupplyAmount: %d, SmokerID: %d, Done: %d} and sent the result: %d\n";
                                                                                                         
     printf(returnMessage, in->supplyType, in->supplyAmount, in->smokerID, in->done, response);
-    fflush(NULL);*/
+    fflush(NULL);
     return(&response);
 }
 
@@ -55,15 +55,15 @@ int checkSupply(char* type, int amount) {
 
 /* Gets the amount left of a resource, either tobacoo, paper, or matches */
 int getSupply(char* type) {
-    /*if (strncmp(type, "tobacco", COMP_LIMIT) == 0)
+    if (strncmp(type, "tobacco", COMP_LIMIT) == 0)
         return tobacco;
     else if (strncmp(type, "paper", COMP_LIMIT) == 0)
         return paper;
     else if (strncmp(type, "matches", COMP_LIMIT) == 0)
         return matches;
-    else {*/
+    else {
         perror("Not a valid resource");
         return -1;
-    //}
+    }
 }
 

@@ -74,27 +74,27 @@ int main(int argc, char**argv)
             strcpy(emptySupply, getEmptySup());
             
             // Creates a struct with an empty supply type to send to the agent 
-            struct supplyReq request = {getEmptySup(), 0, SMOKER_ID, 0};
+            struct supplyReq request = {emptySupply, 0, SMOKER_ID, 0};
 
             // Creates a struct to receive the supplies from the agent 
             int* result = getmemysupply_1(&request, cl);
 
-            /*
+            
             // Checks the result struct and whether resources are available //
-            if (result == 1) { 
+            if (*result == 1) { 
                 printf("Tobacco supplies are received, and now smoking!\n");
                 updateSupplies(request); // Will update resources and smoke on next iteration
             }
-            else if (result == -1)
+            else if (*result == -1)
                 suppliesLeft = 0;
-            else if (result == -2) {
+            else if (*result == -2) {
                 printf("I am the last smoker and there are no more supplies... I will take the agent down with me!");
                 exit_1(&request, cl);
                 clnt_destroy(cl);
                 exit(0);
             }
             else     
-                printf("No communication\n"); */
+                printf("No communication\n"); 
             printf("%d", *result);
             suppliesLeft = 0;
         } 
