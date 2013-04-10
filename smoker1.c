@@ -1,5 +1,6 @@
 #include "smoking.h"
 #define SMOKER_ID 1
+#include "smoke.h"
 
 /* Beginning supplies */
 int tobacco = 10;
@@ -81,19 +82,22 @@ int main(int argc, char**argv)
             int* result = getmemysupply_1(&request, cl);
 
             // Checks the result struct and whether resources are available //
-            if (*result == 1) { 
+            if (*result == REQUEST_GRANTED) { 
                 printf("Tobacco supplies are received, and now smoking!\n");
                 updateSupplies(request); // Will update resources and smoke on next iteration
             }
-            else if (*result == -1)
+            else if (*result == INSUFFICIENT_SUPPLIES)
                 suppliesLeft = 0;
-            else if (*result == -2) {
+            else if (*result == CHANGE_SMOKERS) {
+                printf("Waiting to request again after 3 seconds\n");
+                sleep(3);
+            } else if (*result == TERMINATE) {
                 printf("I am the last smoker and there are no more supplies... I will take the agent down with me!\n");
                 exit_1(&request, cl);
                 clnt_destroy(cl);
                 exit(0);
             }
-            else     
+            else
                 printf("No communication\n"); 
         } 
     } 

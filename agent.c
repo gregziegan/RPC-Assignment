@@ -1,9 +1,11 @@
 #include "smoking.h"
+#include "smoke.h"
 
 int tobacco = 20;
 int paper = 15;
 int matches = 15;
 int smokersKilled = 0;
+int lastSmokerID = 0;
 
 int checkSupply(char type, int amount);
 int getSupply(char type);
@@ -11,21 +13,25 @@ void updateSupply(char type);
 
 int *getmemysupply_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
 
+    /* Will tell a smoker to wait until another smoker has requested supplies */
+    if (in->smokerID == lastSmokerID && smokersKilled < 2) {
+        return((int *)CHANGE_SMOKERS);
+    }
+
     /* Evaluates whether the agent has adequate resources for the request and 
      * then updates the struct to reflect the agent's status
      */
-
     if (checkSupply(in->supplyType, in->supplyAmount) == 1) {
-        in->done = 1;
+        in->done = REQUEST_GRANTED;
     } else {
-        in->done = -1;
+        in->done = INSUFFICIENT_SUPPLIES;
         in->supplyAmount = 0;
         smokersKilled++;
     }
 
-    // Checks if all three smokers have been killed and terminates server if all smokers are killed 
-    if (smokersKilled == 3) {
-        in->done = -2;
+    // Checks if two smokers have been killed and terminates server if there are no supplies left for the last smoker 
+    if (smokersKilled == 2 && in->done == INSUFFICIENT_SUPPLIES) {
+        in->done = TERMINATE;
     }
 
     char* returnMessage = "Server Received {SupplyType: %c, SupplyAmount: %d, SmokerID: %d, Done: %d} and sent the result: %d\n";
