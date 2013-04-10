@@ -1,6 +1,6 @@
 /* Structure of a supply request */
 struct supplyReq {
-    char* supplyType; 
+    char supplyType; 
     int supplyAmount; 
     int smokerID; 
     int done; 

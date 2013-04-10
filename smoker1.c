@@ -1,6 +1,4 @@
 #include "smoking.h"
-#include <string.h>
-#define COMP_LIMIT 7
 #define SMOKER_ID 1
 
 /* Beginning supplies */
@@ -10,7 +8,7 @@ int matches = 10;
 
 void smoke();
 int canSmoke();
-char* getEmptySup();
+char getEmptySup();
 void updateSupplies(struct supplyReq newSupplies);
 
 /* Decrements the supplies */
@@ -30,20 +28,20 @@ int canSmoke() {
 }
 
 /* Retrieves a string representation of an empty resource */
-char* getEmptySup() {
+char getEmptySup() {
     if (tobacco == 0)
-        return "tobacco";
+        return 't';
     else if (paper == 0)
-        return "paper";
+        return 'p';
     else
-        return "matches";
+        return 'm';
 }
 
 /* Updates the supply values based on the struct received by the agent */
 void updateSupplies(struct supplyReq newSupplies) {
-    if (strncmp(newSupplies.supplyType, "tobacco", COMP_LIMIT) == 0) 
+    if (newSupplies.supplyType == 't') 
         tobacco += newSupplies.supplyAmount;
-    else if (strncmp(newSupplies.supplyType, "paper", COMP_LIMIT) == 0) 
+    else if (newSupplies.supplyType == 'p') 
         paper += newSupplies.supplyAmount;
     else
         matches += newSupplies.supplyAmount;
@@ -68,7 +66,6 @@ int main(int argc, char**argv)
         exit(EXIT_FAILURE);
     }
 
-    char* emptySupply = (char *)malloc(sizeof(char[10]));
     int suppliesLeft = 1; // 1 = true
     while (suppliesLeft != 0) {
         if (canSmoke() == 1)
@@ -81,20 +78,12 @@ int main(int argc, char**argv)
             printf("Need Supply type: %s\n", emptySupply);
 
             // Creates a struct with an empty supply type to send to the agent 
-            struct supplyReq request = {emptySupply, 0, SMOKER_ID, 0};
+            struct supplyReq request = {emptySupply, 1, SMOKER_ID, 0};
 
-            /*struct supplyReq *request = malloc(sizeof(supplyReq));
-            request->supplyType = strdup(emptySupply);
-            request->supplyAmount = 0;
-            request->smokerID = SMOKER_ID;
-            request->done = 0;
-
-            */
             printf("Supply Type of request: %s\n", request.supplyType);
             // Creates a struct to receive the supplies from the agent 
             int* result = getmemysupply_1(&request, cl);
 
-            
             // Checks the result struct and whether resources are available //
             if (*result == 1) { 
                 printf("Tobacco supplies are received, and now smoking!\n");

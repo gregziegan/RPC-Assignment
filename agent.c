@@ -1,14 +1,12 @@
 #include "smoking.h"
-#include <string.h>
-#define COMP_LIMIT 7
 
 int tobacco = 20;
 int paper = 15;
 int matches = 15;
 int smokersKilled = 0;
 
-int checkSupply(char* type, int amount);
-int getSupply(char* type);
+int checkSupply(char type, int amount);
+int getSupply(char type);
 
 int *getmemysupply_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
 
@@ -43,7 +41,7 @@ void *exit_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
 }
 
 /* Checks the supply of a certain resources and makes sure there is enough to satisfy the amount requested */
-int checkSupply(char* type, int amount) {
+int checkSupply(char type, int amount) {
     if ((getSupply(type) - amount) >= 0)
         return 1;
     else
@@ -51,12 +49,12 @@ int checkSupply(char* type, int amount) {
 }
 
 /* Gets the amount left of a resource, either tobacoo, paper, or matches */
-int getSupply(char* type) {
-    if (strncmp(type, "t", COMP_LIMIT) == 0)
+int getSupply(char type) {
+    if (type == 't')
         return tobacco;
-    else if (strncmp(type, "p", COMP_LIMIT) == 0)
+    else if (type == 'p')
         return paper;
-    else if (strncmp(type, "m", COMP_LIMIT) == 0)
+    else if (type == 'm')
         return matches;
     else {
         perror("Not a valid resource\n");
