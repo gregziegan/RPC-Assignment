@@ -7,6 +7,7 @@ int smokersKilled = 0;
 
 int checkSupply(char type, int amount);
 int getSupply(char type);
+void updateSupply(char type);
 
 int *getmemysupply_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
 
@@ -42,9 +43,10 @@ void *exit_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
 
 /* Checks the supply of a certain resources and makes sure there is enough to satisfy the amount requested */
 int checkSupply(char type, int amount) {
-    if ((getSupply(type) - amount) >= 0)
+    if ((getSupply(type) - amount) >= 0) {
+        updateSupply(type);
         return 1;
-    else
+    } else
         return 0;
 }
 
@@ -62,3 +64,11 @@ int getSupply(char type) {
     }
 }
 
+void updateSupply(char type) {
+    if (type == 't')
+        tobacco--;
+    else if (type == 'p')
+        paper--;
+    else 
+        matches--;
+}
