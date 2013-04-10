@@ -110,8 +110,6 @@ int main(int argc, char**argv)
             }
             else     
                 printf("No communication\n"); 
-            printf("%d", *result);
-            suppliesLeft = 0;
         } 
     } 
 
