@@ -1,0 +1,223 @@
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: t, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: t, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 3, Done: 200} and sent the result: 200
+The Agent responds: Another smoker3? You wait.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: t, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 3, Done: 200} and sent the result: 200
+The Agent responds: Another smoker3? You wait.
+Agent Received {SupplyType: t, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 3, Done: 200} and sent the result: 200
+The Agent responds: Another smoker3? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 3, Done: 200} and sent the result: 200
+The Agent responds: Another smoker3? You wait.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: t, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 3, Done: 200} and sent the result: 200
+The Agent responds: Another smoker3? You wait.
+Agent Received {SupplyType: t, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: t, SupplyAmount: 1, SmokerID: 3, Done: 200} and sent the result: 200
+The Agent responds: Another smoker3? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 0, SmokerID: 3, Done: 404} and sent the result: 404
+Smoker3 smoked... ahhh
+Smoker3 smoked... ahhh
+Smoker3 smoked... ahhh
+Need more supplies!
+Supply Type of request: p
+Supplies are received, and now smoking!
+Smoker3 smoked... ahhh
+Need more supplies!
+Supply Type of request: p
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: p
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: m
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: m
+Supplies are received, and now smoking!
+Smoker3 smoked... ahhh
+Need more supplies!
+Supply Type of request: p
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: p
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: m
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: m
+Supplies are received, and now smoking!
+Smoker3 smoked... ahhh
+Need more supplies!
+Supply Type of request: t
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: t
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: p
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: p
+Sadly no more smoking supplies, now I will go kill myself.
+Agent Received {SupplyType: m, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: t, SupplyAmount: 1, SmokerID: 1, Done: 200} and sent the result: 200
+The Agent responds: Another smoker1? You wait.
+Agent Received {SupplyType: t, SupplyAmount: 1, SmokerID: 2, Done: 200} and sent the result: 200
+The Agent responds: Another smoker2? You wait.
+Agent Received {SupplyType: p, SupplyAmount: 0, SmokerID: 1, Done: 500} and sent the result: 500
+All smokers killed, therefore agent will terminate
+Smoker1 smoked... ahhh
+Smoker1 smoked... ahhh
+Smoker1 smoked... ahhh
+Need more supplies!
+Supply Type of request: p
+Supplies are received, and now smoking!
+Smoker1 smoked... ahhh
+Need more supplies!
+Supply Type of request: p
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: p
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: m
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: m
+Supplies are received, and now smoking!
+Smoker1 smoked... ahhh
+Need more supplies!
+Supply Type of request: p
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: p
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: m
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: m
+Supplies are received, and now smoking!
+Smoker1 smoked... ahhh
+Need more supplies!
+Supply Type of request: t
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: t
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: p
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: p
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: m
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: m
+Supplies are received, and now smoking!
+Smoker1 smoked... ahhh
+Need more supplies!
+Supply Type of request: t
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: t
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: p
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: p
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: m
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: m
+Supplies are received, and now smoking!
+Smoker1 smoked... ahhh
+Need more supplies!
+Supply Type of request: t
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: t
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: p
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: p
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: m
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: m
+Supplies are received, and now smoking!
+Smoker1 smoked... ahhh
+Need more supplies!
+Supply Type of request: t
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: t
+Supplies are received, and now smoking!
+Need more supplies!
+Supply Type of request: p
+Waiting to request again after 3 seconds
+Need more supplies!
+Supply Type of request: p
+I am the last smoker and there are no more supplies... I will take the agent down with me!
+

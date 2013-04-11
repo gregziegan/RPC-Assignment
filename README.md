@@ -29,3 +29,15 @@ The smoker does the following:
     2. If there are sufficient supplies, it will update its supply and attempt to smoke again
     3. If it is told to wait, it will wait
     4. If it is told it is the last smoker and there are no more supplies, it will kill itself and the server
+
+To execute:
+
+$ ./agent will run the server
+$ ./smokeri HOSTNAME   //  where i = {1,2,3} will run the corresponding client process
+
+Use something like what Tekin specified to run on 4 different machines.
+$ ssh -f grz5@eecslinab2.case.edu "./RPC-Assignment/agent"; ssh -f grz5@eecslinab3.case.edu "./RPC-Assignment/smoker1 eecslinab2.case.edu"; ssh -f grz5@eecslinab4.case.edu "./RPC-Assignment/smoker2 eecslinab2.case.edu"; ssh -f grz5@eecslinab7.case.edu "./RPC-Assignment/smoker3 eecslinab2.case.edu";
+
+output.txt: 
+An example of the scripts being run.
+If you would like to alter the supplies of any of the scripts the variables just below the header statements.
