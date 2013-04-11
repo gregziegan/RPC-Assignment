@@ -1,25 +1,28 @@
 #include "smoking.h"
 #include "smoke.h"
 
+/* The Agent's supplies */
 int tobacco = 20;
 int paper = 15;
 int matches = 15;
 int smokersKilled = 0;
 int lastSmokerID = 0;
 
+/* Function Headers */
 int checkSupply(char type, int amount);
 int getSupply(char type);
-void updateSupply(char type);
+void updateSupply(char type, int amount);
 
 int *getmemysupply_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
 
     /* Will tell a smoker to wait until another smoker has requested supplies */
     if (in->smokerID == lastSmokerID && smokersKilled < 2) {
         in->done = CHANGE_SMOKERS;
+        printf("The Agent responds: Another smoker%d? You wait.\n", in->smokerID);
         return(&in->done);
     }
 
-    lastSmokerID = in->smokerID;
+    lastSmokerID = in->smokerID; // Update the smoker ID
 
     /* Evaluates whether the agent has adequate resources for the request and 
      * then updates the struct to reflect the agent's status
@@ -37,7 +40,7 @@ int *getmemysupply_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
         in->done = TERMINATE;
     }
 
-    char* returnMessage = "Server Received {SupplyType: %c, SupplyAmount: %d, SmokerID: %d, Done: %d} and sent the result: %d\n";
+    char* returnMessage = "Agent Received {SupplyType: %c, SupplyAmount: %d, SmokerID: %d, Done: %d} and sent the result: %d\n";
                                                                                                         
     printf(returnMessage, in->supplyType, in->supplyAmount, in->smokerID, in->done, in->done);
     fflush(NULL);
@@ -50,10 +53,12 @@ void *exit_1_svc(struct supplyReq *in, struct svc_req *rqstp) {
     exit(0);
 }
 
-/* Checks the supply of a certain resources and makes sure there is enough to satisfy the amount requested */
+/* Checks the supply of a certain resources and makes sure there is enough 
+ * to satisfy the amount requested and then updates the supply accordingly 
+ */
 int checkSupply(char type, int amount) {
     if ((getSupply(type) - amount) >= 0) {
-        updateSupply(type);
+        updateSupply(type, amount);
         return 1;
     } else
         return 0;
@@ -65,19 +70,16 @@ int getSupply(char type) {
         return tobacco;
     else if (type == 'p')
         return paper;
-    else if (type == 'm')
+    else
         return matches;
-    else {
-        perror("Not a valid resource\n");
-        return -1;
-    }
 }
 
-void updateSupply(char type) {
+/* Change the value of the supply accordingly */
+void updateSupply(char type, int amount) {
     if (type == 't')
-        tobacco--;
+        tobacco -= amount;
     else if (type == 'p')
-        paper--;
+        paper -= amount;
     else 
-        matches--;
+        matches -= amount;
 }
